@@ -7,4 +7,12 @@ const getCoin = async () => {
   const response = await axios.get(CoinURL);
   return response.data;
 };
-export { getCoin };
+
+const productUrl = "https://fakestoreapi.com";
+
+const getProduct = async () => {
+  const response = await axios.get(`${productUrl}/products`);
+  return response.data;
+};
+
+export { getCoin, getProduct };

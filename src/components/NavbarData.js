@@ -17,7 +17,7 @@ export const sidebarData = [
   },
   {
     title: "product",
-    path: "/product",
+    path: "/",
     icon: <AiOutlineShoppingCart />,
     cName: "nav-text",
   },
