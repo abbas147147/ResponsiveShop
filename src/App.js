@@ -8,16 +8,19 @@ import ProductDetail from "./components/ProductDetail";
 import { Routes, Route } from "react-router-dom";
 //context
 import ProductContextProvider from "./context/ProductContextProvider";
+import CountContextProvider from "./context/CountContextProvider";
 const App = () => {
   return (
     <div>
       <ProductContextProvider>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/crypto" element={<Crypto />} />
-          <Route path="/detail/:id" element={<ProductDetail />} />
-        </Routes>
+        <CountContextProvider>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/crypto" element={<Crypto />} />
+            <Route path="/detail/:id" element={<ProductDetail />} />
+          </Routes>
+        </CountContextProvider>
       </ProductContextProvider>
     </div>
   );

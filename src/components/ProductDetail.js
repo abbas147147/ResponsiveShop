@@ -30,7 +30,7 @@ const ProductDetail = (props) => {
             <h2 className="text-primary fw-bold h1"> {shorten(title)} </h2>
             <h4> {category} </h4>
             <p className="text-muted"> {description} </p>
-            <p className="btn btn-success"> {price} $</p>
+            <p className="btn btn-success pe-none"> {price} $</p>
             <Link to="/" className="btn btn-outline-primary d-block">
               Back To Shop
             </Link>
