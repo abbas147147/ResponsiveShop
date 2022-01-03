@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 
 import { Link } from "react-router-dom";
 //icon
@@ -10,11 +10,19 @@ import { sidebarData } from "./NavbarData";
 import "./navbar.css";
 //contexticon
 import { IconContext } from "react-icons";
+//reactbootstrap
+import { Badge, Button } from "react-bootstrap";
+//icon
+import { FaShoppingCart } from "react-icons/fa";
+//context
+import { CounterContext } from "../context/CountContextProvider";
 
 const Navbar = () => {
   const [sidebar, setSidebar] = useState(false);
-
   const showSidebar = () => setSidebar(!sidebar);
+
+  const { state } = useContext(CounterContext);
+
   return (
     <div className="fixed-top">
       <IconContext.Provider value={{ color: "#fff" }}>
@@ -22,7 +30,13 @@ const Navbar = () => {
           <Link to="#" className="menu-bars">
             <HiMenu onClick={showSidebar} />
           </Link>
-          <h1 className="text-white">abbas</h1>
+          <Link to="/checkout" className="me-3">
+            <Button variant="primary">
+              <FaShoppingCart className="fs-3" />{" "}
+              <Badge bg="secondary">{state.itemCounter}</Badge>
+              <span className="visually-hidden">unread messages</span>
+            </Button>
+          </Link>
         </div>
         <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
           <ul className="nav-menu-items">
